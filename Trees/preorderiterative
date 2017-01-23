@@ -8,27 +8,27 @@
  * }
  */
 public class Solution {
-    List<Integer> ans=new ArrayList<>();
-    public List<Integer> postorderTraversal(TreeNode root) {
+    List<Integer> ans=new ArrayList<Integer>();
+    public List<Integer> preorderTraversal(TreeNode root) {
         if(root==null)
         {
             return ans;
         }
-        Stack<TreeNode> stack=new Stack<>();
+        Stack<TreeNode> stack=new Stack<TreeNode>();
         stack.push(root);
         while(stack.size()>0)
         {
             TreeNode item=stack.pop();
             ans.add(item.val);
-            if(item.left!=null)
-            {
-                stack.push(item.left);
-            }
             if(item.right!=null)
             {
                 stack.push(item.right);
             }
+            if(item.left!=null)
+            {
+                stack.push(item.left);
+            }
         }
-       return ans;
+        return ans;
     }
 }
